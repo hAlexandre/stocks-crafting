@@ -1,12 +1,20 @@
 {
-  "name": "stocks-imobiman",
+  "name": "stocks-crafting",
   "version": "1.0.0",
   "description": "",
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Alexandre Azevedo Oliveira",
-  "license": "ISC"  
-  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hAlexandre/stocks-crafting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hAlexandre/stocks-crafting/issues"
+  },
+  "homepage": "https://github.com/hAlexandre/stocks-crafting#readme"
 }
