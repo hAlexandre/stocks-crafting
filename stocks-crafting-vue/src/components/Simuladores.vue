@@ -49,7 +49,11 @@
     </div>
 
     <div style="padding-top:38px">
-      <h6>{{this.interestTitle}} {{this.monthlyContribution}}</h6>
+      <h6>
+        {{this.interestTitle}} {{this.monthlyContribution}} 
+   
+        
+      </h6>
     </div>
 
 
@@ -74,19 +78,23 @@ export default {
     return {
       simulationTotal: 0,     
       simulationInterest: 0,
-      simulationInterestType: null,     
+      simulationInterestType: null,
+      simulationPeridiocity: "",
       interestTitle: "% ao mês",
       investmentPeriod: "anos",
       monthlyContribution: 0,
+
       isSimulating: null
     }
   },
   methods: {
     simulate() {
       this.isSimulating = true;
+      this.simulationPeriodicity = 
       this.simulationInterestType = this.interestTitle;
       this.monthlyContribution = parseFloat(document.getElementById("monthlyContribution")
         .value.replace(",","."));
+
       
 
 
