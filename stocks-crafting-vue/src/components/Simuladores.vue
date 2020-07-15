@@ -12,7 +12,7 @@
   <div class="col-md-8">
     <h6>1 - Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
     <div style="padding-top:5px">
-      <h7> <b>Quanto vai guardar por mês? </b></h7>  
+      <h6> <b>Quanto vai guardar por mês? </b></h6>  
     </div>  
     <div class="input-group" >
       <input id="monthlyContribution" type="text" class="form-control" aria-label="Text input with dropdown button">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <h7> <b>Por quanto tempo? </b></h7>  
+    <h6> <b>Por quanto tempo? </b></h6>  
     <div class="input-group ">
       <input type="text" class="form-control" aria-label="Text input with dropdown button">
       <div class="input-group-append">
@@ -33,9 +33,9 @@
       </div>    
     </div>
 
-    <h8> <b>Qual a taxa?</b>  CDI em 10 de julho = 0,38% ao mês</h8> 
+    <h6> <b>Qual a taxa?</b>  CDI em 10 de julho = 0,38% ao mês</h6> 
     <div class="input-group ">
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <input id="interest" type="text" class="form-control" aria-label="Text input with dropdown button">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary dropdown-toggle" style="padding-left:25px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{interestTitle}}</button>
         <div class="dropdown-menu">
@@ -50,9 +50,8 @@
 
     <div style="padding-top:38px">
       <h6>
-        {{this.interestTitle}} {{this.monthlyContribution}} 
-   
-        
+        Guardando R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}}
+         = {{this.interest}}% ao mês                        
       </h6>
     </div>
 
@@ -80,23 +79,30 @@ export default {
       simulationInterest: 0,
       simulationInterestType: null,
       simulationPeridiocity: "",
+      simulationResults: null,
+      interest: 0,
       interestTitle: "% ao mês",
       investmentPeriod: "anos",
       monthlyContribution: 0,
-
       isSimulating: null
     }
   },
   methods: {
     simulate() {
       this.isSimulating = true;
-      this.simulationPeriodicity = 
-      this.simulationInterestType = this.interestTitle;
       this.monthlyContribution = parseFloat(document.getElementById("monthlyContribution")
         .value.replace(",","."));
-
+      this.simulationInterestType = this.interestTitle;
+      this.simulationInterest = parseFloat(document.getElementById("interest")
+        .value.replace(",","."));  
+                        
+      if(this.simulationInterestType === "% ao ano") {
+        this.interest = 100 * (-1 + Math.pow( (1 + this.simulationInterest/100), 1/12));
+      } else {
+        this.interest = this.simulationInterest;
+      }      
+      this.interest = parseFloat(this.interest.toFixed(2));
       
-
 
     }
   },
