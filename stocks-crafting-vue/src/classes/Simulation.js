@@ -3,16 +3,16 @@ export default class SimulationClass {
     static execute(interestPeridiocity, interestValue, periodType, period, monthlyContribution) {
                 
 
-        var simulationResult = {
+        let simulationResult = {
             year: {},
             total: 0
         }
 
-        console.log('interestPeridiocity =>' + interestPeridiocity);
-        console.log('interestValue =>' + interestValue);
-        console.log('periodType =>' + periodType);
-        console.log('period =>' + period );
-        console.log('monthlyContribution =>' + monthlyContribution );
+        //console.log('interestPeridiocity =>' + interestPeridiocity);
+        //console.log('interestValue =>' + interestValue);
+        //console.log('periodType =>' + periodType);
+        //console.log('period =>' + period );
+        //console.log('monthlyContribution =>' + monthlyContribution );
 
         if(periodType === "anos") {
             period = 12 * period;
@@ -40,7 +40,7 @@ export default class SimulationClass {
         
 
         while (count < period) {
-            console.log('i => ' + i + 'j => '+ j);
+            //console.log('i => ' + i + 'j => '+ j);
             sum = sum * (1 + interestValue/100) + monthlyContribution;
             //console.log(sum);          
             let aux = {
@@ -59,17 +59,17 @@ export default class SimulationClass {
             }
             
             count ++;
-            console.log(count);
+            //console.log(count);
         }
         
         simulationResult.total = sum;
 
-        console.log(JSON.stringify(simulationResult));
+        //console.log(JSON.stringify(simulationResult));
         
 
 
 
-        return 1;
+        return JSON.stringify(simulationResult);
     }
 
 }
