@@ -9,7 +9,7 @@
           
         </div>
       </div>
-  <div class="col-md-8">
+  <div class="col-md-5">
     <h6>1 - Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
     <div style="padding-top:5px">
       <h6> <b>Quanto vai guardar por mês? </b></h6>  
@@ -23,7 +23,7 @@
 
     <h6> <b>Por quanto tempo? </b></h6>  
     <div class="input-group ">
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <input id="howLong" type="text" class="form-control" aria-label="Text input with dropdown button">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary dropdown-toggle" style="padding-left:57px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{investmentPeriod}}</button>
         <div class="dropdown-menu">
@@ -50,8 +50,8 @@
 
     <div style="padding-top:38px">
       <h6>
-        Guardando R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}}
-         = {{this.interest}}% ao mês                        
+        Guardando R${{this.monthlyContribution}} todo mês por {{this.simulationPeridiocity}} a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}}
+               
       </h6>
     </div>
 
@@ -70,7 +70,7 @@
 
 <script>
 
-
+import Simulation from '../classes/Simulation.js'
 export default {
   name: 'App',
   data( ){
@@ -79,8 +79,8 @@ export default {
       simulationInterest: 0,
       simulationInterestType: null,
       simulationPeridiocity: "",
-      simulationResults: null,
-      interest: 0,
+      simulationDuration: 0,      
+      simulationResults: null,      
       interestTitle: "% ao mês",
       investmentPeriod: "anos",
       monthlyContribution: 0,
@@ -88,28 +88,33 @@ export default {
     }
   },
   methods: {
-    simulate() {
+    simulate() {      
       this.isSimulating = true;
+      this.simulationDuration = document.getElementById("howLong").value;
+
+      this.simulationPeridiocity = this.investmentPeriod;
       this.monthlyContribution = parseFloat(document.getElementById("monthlyContribution")
         .value.replace(",","."));
       this.simulationInterestType = this.interestTitle;
       this.simulationInterest = parseFloat(document.getElementById("interest")
         .value.replace(",","."));  
-                        
-      if(this.simulationInterestType === "% ao ano") {
-        this.interest = 100 * (-1 + Math.pow( (1 + this.simulationInterest/100), 1/12));
-      } else {
-        this.interest = this.simulationInterest;
-      }      
-      this.interest = parseFloat(this.interest.toFixed(2));
+      
+      
+      
+      
+      this.simulationResults = Simulation.execute(this.simulationInterestType, 
+                                  this.simulationInterest, this.investmentPeriod, 
+                                  this.simulationDuration, this.monthlyContribution);
+      
+
+      
       
 
     }
   },
   mounted(){     
       this.interestTitle = '% ao mês';
-      this.investmentPeriod = 'anos'
-      
+      this.investmentPeriod = 'anos'      
       this.isSimulating = false;
       this.simulationTotal = 0,     
       this.simulationInterest = 0,
