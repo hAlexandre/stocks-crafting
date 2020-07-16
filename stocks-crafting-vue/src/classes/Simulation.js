@@ -2,6 +2,12 @@ export default class SimulationClass {
 
     static execute(interestPeridiocity, interestValue, periodType, period, monthlyContribution) {
                 
+
+        var simulationResult = {
+            year: {},
+            total: 0
+        }
+
         console.log('interestPeridiocity =>' + interestPeridiocity);
         console.log('interestValue =>' + interestValue);
         console.log('periodType =>' + periodType);
@@ -16,45 +22,54 @@ export default class SimulationClass {
             interestValue = 100 * (-1 + Math.pow( (1 + this.interestValue/100), 1/12));
         }
         
-        var simulationResult = {
-            years: { },
-            total: 0            
-        };
+        
 
-        var anos = Math.ceil(period/12);
-        for (var a = 0 ; a < anos ; a++) { 
-            simulationResult.years[a] = [];             
-        }
+        
         
         var i = 0;
         var j = 0;
         var count = 0;
         var sum = 0;
+        
+        
 
-        while (count < period) {
-            sum = sum * (1 + interestValue/100) + monthlyContribution;
-
-            simulationResult.years[i].push({
-                totalValue: sum;
-            });
-            
-            j++;
-            count ++;
-
-            
-            
-            if(j==11) { 
-                i = 0;
-                i++;
-            }
+        let anos = Math.ceil(period / 12);
+        for( var cont = 0 ; cont < anos ; cont ++) {
+            simulationResult.year[cont] = new Array();
         }
         
+
+        while (count < period) {
+            console.log('i => ' + i + 'j => '+ j);
+            sum = sum * (1 + interestValue/100) + monthlyContribution;
+            //console.log(sum);          
+            let aux = {
+                month: j,
+                total: sum
+            }
+            
+            simulationResult.year[i].push(aux);
+            
+
+            if(j==11) { 
+                j = 0;
+                i++;                
+            } else {
+                j++;
+            }
+            
+            count ++;
+            console.log(count);
+        }
         
+        simulationResult.total = sum;
+
         console.log(JSON.stringify(simulationResult));
+        
 
 
 
-        return simulationResult();
+        return 1;
     }
 
 }
