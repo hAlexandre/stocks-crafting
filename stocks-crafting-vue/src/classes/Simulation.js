@@ -17,9 +17,7 @@ export default class SimulationClass {
         }
         
         var simulationResult = {
-            years: {
-                
-            },
+            years: { },
             total: 0            
         };
 
@@ -31,11 +29,13 @@ export default class SimulationClass {
         var i = 0;
         var j = 0;
         var count = 0;
-        
+        var sum = 0;
+
         while (count < period) {
-                        
+            sum = sum * (1 + interestValue/100) + monthlyContribution;
+
             simulationResult.years[i].push({
-                
+                totalValue: sum;
             });
             
             j++;
