@@ -19,7 +19,9 @@ export default class SimulationClass {
         }
         
         if(interestPeridiocity === "% ao ano") {
-            interestValue = 100 * (-1 + Math.pow( (1 + this.interestValue/100), 1/12));
+            console.log(interestValue);
+            interestValue = 100 * (-1 + Math.pow( (1 + interestValue/100), 1/12));
+            
         }
         
         
@@ -38,14 +40,16 @@ export default class SimulationClass {
             simulationResult.year[cont] = new Array();
         }
         
-
+        var totalSoFar = 0;
         while (count < period) {
             //console.log('i => ' + i + 'j => '+ j);
             sum = sum * (1 + interestValue/100) + monthlyContribution;
             //console.log(sum);          
+            totalSoFar += monthlyContribution;
             let aux = {
                 month: j,
-                total: sum
+                total: sum,
+                totalInvested :totalSoFar
             }
             
             simulationResult.year[i].push(aux);
