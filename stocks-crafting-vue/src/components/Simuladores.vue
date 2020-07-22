@@ -53,9 +53,20 @@
     <div class="col-md-4" v-if="simulationResult != null" style="padding-top: 20px">
         <h6>
           Investindo R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
-          você terá R${{this.simulationResult.total.toFixed(2)}} ao final de {{this.simulationDuration}} {{this.simulationPeridiocity}}
-                
+          você terá R${{this.simulationResult.total.toFixed(2)}} ao final de {{this.simulationDuration}} {{this.simulationPeridiocity}}                
         </h6>
+        <ul>
+          <li v-for="(year, i) in simulationResult.year" :key="i">
+              <ul>
+                Ano {{i + 1}}
+                <li v-for="(month, j) in year" :key="j">
+                  Mês {{JSON.stringify(month.month + 1)}} => Valor total acumulado
+                  {{JSON.stringify(month.total)}}
+                  {{JSON.stringify(month.totalInvested)}}
+                </li>
+              </ul>
+          </li>
+        </ul>
       </div>    
   </div>
   
@@ -99,11 +110,11 @@ export default {
       this.simulationInterest = parseFloat(document.getElementById("interest")
         .value.replace(",","."));  
                         
-      this.simulationResult = JSON.parse(Simulation.execute(this.simulationInterestType, 
+      this.simulationResult = Simulation.execute(this.simulationInterestType, 
                                   this.simulationInterest, this.investmentPeriod, 
-                                  this.simulationDuration, this.monthlyContribution));
+                                  this.simulationDuration, this.monthlyContribution);
+      console.log(JSON.stringify(this.simulationResult));
       
-
       
       
 

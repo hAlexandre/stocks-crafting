@@ -1,5 +1,13 @@
 export default class SimulationClass {
 
+    year;
+    total;
+
+    constructor(data) {
+        Object.assign(this, data);
+    
+    }
+
     static execute(interestPeridiocity, interestValue, periodType, period, monthlyContribution) {
                 
 
@@ -73,7 +81,7 @@ export default class SimulationClass {
 
 
 
-        return JSON.stringify(simulationResult);
+        return (simulationResult);
     }
 
 }
