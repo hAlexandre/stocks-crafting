@@ -9,7 +9,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6" style="padding-top: 20px">
+    <div class="col-md-4" style="padding-top: 20px">
       <h6>1 - Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
       <div style="padding-top:5px">
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
@@ -49,26 +49,36 @@
       </div>
 
     </div>
+    
 
-    <div class="col-md-4" v-if="simulationResult != null" style="padding-top: 20px">
+    <div class="col-md-8" v-if="simulationResult != null" style="padding-top: 20px">
         <h6>
           Investindo R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
           você terá R${{this.simulationResult.total.toFixed(2)}} ao final de {{this.simulationDuration}} {{this.simulationPeridiocity}}                
         </h6>
-        <ul>
-          <li v-for="(year, i) in simulationResult.year" :key="i">
-              <ul>
-                Ano {{i + 1}}
-                <li v-for="(month, j) in year" :key="j">
-                  Mês {{JSON.stringify(month.month + 1)}} => Valor total acumulado
-                  {{JSON.stringify(month.total)}}
-                  {{JSON.stringify(month.totalInvested)}}
-                </li>
-              </ul>
-          </li>
-        </ul>
-      </div>    
-  </div>
+        
+          
+        
+          <div class="col-md-12 row"  v-for="(year, i) in simulationResult.year" :key="i">            
+                <p>          
+                  <button class="btn btn-primary row" type="button" data-toggle="collapse" :data-target="'#collapseExample'+i" aria-expanded="false" aria-controls="collapseExample">
+                    Ano {{parseInt(i)+1}} <!--Total = R${{(simulationResult.yearsTotal[i].toFixed(2))}}-->
+                  </button>
+                </p>
+          
+                <div class="collapse col-md-8" v-bind:id="'collapseExample'+i" style="padding-left: 30px">                  
+                      <div class="card card-body" v-for="(month, j) in year" :key="j">
+                        Mês {{parseInt(JSON.stringify(month.month))+1}} => Valor total acumulado
+                        {{JSON.stringify(month.total)}} => 
+                        {{JSON.stringify(month.totalInvested)}}
+                      </div>                  
+               
+            </div>   
+            </div>
+         </div>
+      </div>            
+  
+  
   
   
   
@@ -100,7 +110,7 @@ export default {
   },
   methods: {
     simulate() {      
-      this.isSimulating = true;
+      
       this.simulationDuration = document.getElementById("howLong").value;
 
       this.simulationPeridiocity = this.investmentPeriod;
@@ -114,10 +124,10 @@ export default {
                                   this.simulationInterest, this.investmentPeriod, 
                                   this.simulationDuration, this.monthlyContribution);
       console.log(JSON.stringify(this.simulationResult));
+      console.log(JSON.stringify(this.simulationResult.yearsTotal));
       
       
-      
-
+      this.isSimulating = true;
     }
   },
   mounted(){     

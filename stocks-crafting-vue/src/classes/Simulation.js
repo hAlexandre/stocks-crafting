@@ -2,7 +2,7 @@ export default class SimulationClass {
 
     year;
     total;
-
+    totalYear;
     constructor(data) {
         Object.assign(this, data);
     
@@ -13,7 +13,8 @@ export default class SimulationClass {
 
         let simulationResult = {
             year: {},
-            total: 0
+            total: 0,
+            yearsTotal: []
         }
 
         //console.log('interestPeridiocity =>' + interestPeridiocity);
@@ -47,6 +48,8 @@ export default class SimulationClass {
         for( var cont = 0 ; cont < anos ; cont ++) {
             simulationResult.year[cont] = new Array();
         }
+        simulationResult.yearsTotal = [];
+        
         
         var totalSoFar = 0;
         while (count < period) {
@@ -54,27 +57,37 @@ export default class SimulationClass {
             sum = sum * (1 + interestValue/100) + monthlyContribution;
             //console.log(sum);          
             totalSoFar += monthlyContribution;
+            
             let aux = {
                 month: j,
                 total: sum,
                 totalInvested :totalSoFar
+                
             }
             
             simulationResult.year[i].push(aux);
             
+            count ++;
 
             if(j==11) { 
                 j = 0;
-                i++;                
+                simulationResult.yearsTotal[i] = sum;
+                
+                i++;
+                
             } else {
                 j++;
             }
             
-            count ++;
+            
             //console.log(count);
         }
         
         simulationResult.total = sum;
+
+        if(j != 0) {
+            simulationResult.yearsTotal[i] = sum;
+        }
 
         //console.log(JSON.stringify(simulationResult));
         
