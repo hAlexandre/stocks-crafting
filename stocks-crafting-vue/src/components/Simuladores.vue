@@ -53,7 +53,7 @@
 
     <div class="col-md-8" v-if="simulationResult != null" style="padding-top: 20px">
         <h6>
-          Investindo R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
+          Investindo R${{this.monthlyContribution.toFixed(2)}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
           por {{this.simulationDuration}} {{this.simulationPeridiocity}}
           você terá <h5><b>R${{this.simulationResult.total.toFixed(2)}}</b></h5>                  
         </h6>
@@ -112,7 +112,7 @@ export default {
   methods: {
     simulate() {      
       
-      this.simulationDuration = document.getElementById("howLong").value;
+      this.simulationDuration = parseInt(document.getElementById("howLong").value);
 
       this.simulationPeridiocity = this.investmentPeriod;
       this.monthlyContribution = parseFloat(document.getElementById("monthlyContribution")
