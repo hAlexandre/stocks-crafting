@@ -15,7 +15,7 @@
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
       </div>  
       <div class="input-group" >
-        <input id="monthlyContribution" type="text" class="form-control" aria-label="Text input with dropdown button">
+        <input id="monthlyContribution" value="1000" type="text" class="form-control" aria-label="Text  put with dropdown button">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary " type="button">reais por mês</button>      
         </div>
@@ -23,7 +23,7 @@
 
       <h6> <b>Por quanto tempo? </b></h6>  
       <div class="input-group ">
-        <input id="howLong" type="text" class="form-control" aria-label="Text input with dropdown button">
+        <input id="howLong" type="text" value="30" class="form-control" aria-label="Text input with dropdown button">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary dropdown-toggle" style="padding-left:57px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{investmentPeriod}}</button>
           <div class="dropdown-menu">
@@ -35,7 +35,7 @@
 
       <h6> <b>Qual a taxa?</b>  CDI em 10 de julho = 0,38% ao mês</h6> 
       <div class="input-group ">
-        <input id="interest" type="text" class="form-control" aria-label="Text input with dropdown button">
+        <input id="interest" type="text" value="0,50" class="form-control" aria-label="Text input with dropdown button">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary dropdown-toggle" style="padding-left:25px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{interestTitle}}</button>
           <div class="dropdown-menu">
@@ -54,7 +54,8 @@
     <div class="col-md-8" v-if="simulationResult != null" style="padding-top: 20px">
         <h6>
           Investindo R${{this.monthlyContribution}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
-          você terá R${{this.simulationResult.total.toFixed(2)}} ao final de {{this.simulationDuration}} {{this.simulationPeridiocity}}                
+          por {{this.simulationDuration}} {{this.simulationPeridiocity}}
+          você terá <h5><b>R${{this.simulationResult.total.toFixed(2)}}</b></h5>                  
         </h6>
         
           
@@ -68,9 +69,9 @@
           
                 <div class="collapse col-md-8" v-bind:id="'collapseExample'+i" style="padding-left: 30px">                  
                       <div class="card card-body" v-for="(month, j) in year" :key="j">
-                        Mês {{parseInt(JSON.stringify(month.month))+1}} => Valor total acumulado
-                        {{JSON.stringify(month.total)}} => 
-                        {{JSON.stringify(month.totalInvested)}}
+                        Mês {{parseInt(JSON.stringify(month.month))+1}}
+                        Total acumulado = R${{  JSON.stringify(month.total.toFixed(2)).replace(/['"]+/g, '')  }}  
+                        Total investido até agora = R$ {{JSON.stringify(month.totalInvested.toFixed(2)).replace(/['"]+/g, '')}}
                       </div>                  
                
             </div>   
@@ -136,7 +137,10 @@ export default {
       this.isSimulating = false;
       this.simulationTotal = 0,     
       this.simulationInterest = 0,
-      this.simulationInterestType = null
+      this.simulationInterestType = null,
+      this.simulationDuration = document.getElementById("howLong").value;
+      
+
   }
 }
 
