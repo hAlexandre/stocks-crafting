@@ -1,5 +1,8 @@
 <template>
 <html>
+<head>
+  <title>Amigos do Dinheiro</title>
+</head>
 <body>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -114,10 +117,6 @@
 
 export default {
   name: 'App',
-  components: {
-    //Simulador,
-    //ManterGaleria    
-  },
   methods: {
     setRoute(route) {
       this.selectedMenu = route;
