@@ -2,6 +2,15 @@
 <html>
 <head>
   <title>Amigos do Dinheiro</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176075375-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176075375-2');
+  </script>
+
 </head>
 <body>
   <meta charset="utf-8">
