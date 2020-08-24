@@ -136,8 +136,8 @@ export default {
     }
   },
   mounted(){     
-      this.selectedMenu = 'home';
-      this.$router.push('home');   
+      this.selectedMenu = 'simuladores';
+      this.$router.push(this.selectedMenu);   
   }
 }
 </script>
