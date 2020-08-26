@@ -143,8 +143,7 @@ export default {
     }
   },
   mounted(){     
-      this.selectedMenu = 'simuladores';
-      this.$router.push(this.selectedMenu);   
+      this.setRoute('simuladores')  
   }
 }
 </script>

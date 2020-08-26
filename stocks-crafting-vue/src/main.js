@@ -13,6 +13,7 @@ window.jQuery = window.$ = $;
 import VueRouter from 'vue-router'
 import Simuladores from './components/Simuladores.vue'
 import Blog from './components/Blog.vue'
+import QuemSomos from './components/QuemSomos.vue'
 
 //Vue.config.productionTip = false
 Vue.use(BootstrapVue);
@@ -31,7 +32,12 @@ const routes = [
       name: 'Blog',
       path: '/Blog',
       component: Blog
-    }    
+    },
+    {
+      name: 'QuemSomos',
+      path: '/QuemSomos',
+      component: QuemSomos
+    }     
   ]
   
 const router = new VueRouter({mode: 'history', routes: routes});
