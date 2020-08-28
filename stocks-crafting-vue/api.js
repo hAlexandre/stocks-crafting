@@ -6,7 +6,7 @@ const api = express();
 const porta = 3000;
 const router = express.Router();
 
-const mongoose = require('mongoose');
+
 
 api.use(cors());
 
@@ -17,9 +17,12 @@ router.get("/", (req, resp) => resp.json({
     mensagem: '=> API Onlisne'
 }));
 
-//Connect to mongo
 
+
+const postRouter = require('./rest-api/router/postRouter');
 
 api.use("/", router);
+api.use("/blog", postRouter);
+
 api.listen(porta);
 console.log('Run API Express');

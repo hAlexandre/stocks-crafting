@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="col-md-4" style="padding-top: 20px">
-      <h6>1 - Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
+      <h6>Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
       <div style="padding-top:5px">
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
       </div>  
