@@ -8,12 +8,10 @@ module.exports =  class PostModel {
         [dados.titulo, dados.conteudo]);
     }
 
-    static getPosts(callback) {
-        //console.log("PostModel.getPosts => OK");
-        //console.log(db.getConnection.);
+    static getPosts(callback) {               
         //if(dados.pagina)
             //return 1; //TO DO PAGINAÇÃO
-        console.log("PostModel.getPosts => START");
+        //console.log("PostModel.getPosts => START");
         return db.query('SELECT * FROM POSTAGEM', callback);
     }
 

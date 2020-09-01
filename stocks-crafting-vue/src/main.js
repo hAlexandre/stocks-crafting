@@ -19,8 +19,15 @@ import QuemSomos from './components/QuemSomos.vue'
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 
-//let server = `${ConfigClass.getUrlApi().toString()}`;
 
+
+import BlogService from './service/BlogService'
+import {ConfigClass} from './classes/ConfigClass'
+
+let server = `${ConfigClass.getUrlApi().toString()}`;
+
+Vue.prototype.$blogService = BlogService;
+Vue.prototype.$server = server;
 
 const routes = [
     {
