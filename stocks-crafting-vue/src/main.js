@@ -21,8 +21,8 @@ Vue.use(VueRouter);
 
 
 
-import BlogService from './service/BlogService'
-import {ConfigClass} from './classes/ConfigClass'
+import BlogService from './service/BlogService.js'
+import {ConfigClass} from './classes/ConfigClass.js'
 
 let server = `${ConfigClass.getUrlApi().toString()}`;
 
