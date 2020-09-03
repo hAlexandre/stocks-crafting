@@ -19,7 +19,7 @@ router.get("/", (req, resp) => resp.json({
 
 
 
-const postRouter = require('./rest-api/router/postRouter');
+const postRouter = require('./rest-api/router/postRouter.js');
 
 api.use("/", router);
 api.use("/blog", postRouter);

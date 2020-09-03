@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const PostModel = require('../model/PostModel');
-const RespostaClass = require('../model/RespostaClass');
+const PostModel = require('../model/PostModel.js');
+const RespostaClass = require('../model/RespostaClass.js');
 
 router.get("/", function (req, resp, next){
     console.log("postRouter => OK");        

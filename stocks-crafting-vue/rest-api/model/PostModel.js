@@ -1,4 +1,4 @@
-const db = require('../database/dbConnection');
+const db = require('../database/dbConnection.js');
 
 
 module.exports =  class PostModel {
