@@ -33,8 +33,8 @@ const fs = require ('fs');
 const path = require('path');
 const https = require ('https');
 const httpsOptions = {
-    cert: fs.readFileSync(path.join(__dirname, 'server', 'ssl' , 'server.crt')),
-    key: fs.readFileSync(path.join(__dirname, 'server', 'ssl', 'server.key'))
+    cert: fs.readFileSync(path.join(__dirname, 'server', 'ssl' , 'certificate.crt')),
+    key: fs.readFileSync(path.join(__dirname, 'server', 'ssl', 'private.key'))
 }
 https.createServer(httpsOptions, api).listen(3000);
 
