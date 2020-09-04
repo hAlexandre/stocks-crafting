@@ -7,14 +7,14 @@
 <body>
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Simulador de juros compostos</h1>       
+    <h3 > <b>Simulador e calculadora de juros compostos para aposentadoria</b></h3>       
     <div class="btn-toolbar mb-2 mb-md-0">                  
       </div>
   </div>
 
   <div class="row">
     <div class="col-md-4" style="padding-top: 20px">
-      <h6>Quanto dinheiro você terá após guardar um pouquinho todo mês?</h6>
+      <h6>Quanto dinheiro você junta guardando um pouquinho todo mês?</h6>
       <div style="padding-top:5px">
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
       </div>  
@@ -60,16 +60,15 @@
           Investindo R${{this.monthlyContribution.toFixed(2)}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
           por {{this.simulationDuration}} {{this.simulationPeridiocity}}
           você terá <h5><b>R${{this.simulationResult.total.toFixed(2)}}</b></h5>                  
-        </h6>
-        
+        </h6>        
           
-        
-          <div class="col-md-12 row"  v-for="(year, i) in simulationResult.year" :key="i">            
-                <p>          
-                  <button class="btn btn-primary row" type="button" data-toggle="collapse" :data-target="'#collapseExample'+i" aria-expanded="false" aria-controls="collapseExample">
+          <div class="col-md-12 row"  v-for="(year, i) in simulationResult.year" :key="i" style="padding-bottom:3px">            
+                          
+                  <button class="btn btn-primary row" type="button" data-toggle="collapse" :data-target="'#collapseExample'+i" aria-expanded="false" 
+                  aria-controls="collapseExample" >
                     Ano {{parseInt(i)+1}} <!--Total = R${{(simulationResult.yearsTotal[i].toFixed(2))}}-->
                   </button>
-                </p>
+                
           
                 <div class="collapse col-md-8" v-bind:id="'collapseExample'+i" style="padding-left: 30px">                  
                       <div class="card card-body" v-for="(month, j) in year" :key="j">
