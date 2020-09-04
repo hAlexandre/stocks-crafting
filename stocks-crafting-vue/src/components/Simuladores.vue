@@ -12,8 +12,9 @@
       </div>
   </div>
 
+  
   <div class="row">
-    <div class="col-md-4" style="padding-top: 20px">
+    <div class="col-md-4" style="padding-top: 0px">
       <h6>Quanto dinheiro você junta guardando um pouquinho todo mês?</h6>
       <div style="padding-top:5px">
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
@@ -55,32 +56,34 @@
     </div>
     
 
-    <div class="col-md-8" v-if="simulationResult != null" style="padding-top: 20px">
+    <div class="col-md-8" v-if="simulationResult != null" style="padding-top: 00px">
         <h6>
-          Investindo R${{this.monthlyContribution.toFixed(2)}} todo mês a uma taxa de {{this.simulationInterest}}{{this.simulationInterestType}} 
-          por {{this.simulationDuration}} {{this.simulationPeridiocity}}
-          você terá <h5><b>R${{this.simulationResult.total.toFixed(2)}}</b></h5>                  
+          Investindo R${{(this.monthlyContribution).toFixed(2).replace(/['"]+/g, '').replace('.',',')}} todo mês a uma taxa de {{(this.simulationInterest.toFixed(2).replace(/['"]+/g, '').replace('.',','))}}{{(this.simulationInterestType)}} 
+          por {{(this.simulationDuration)}} {{this.simulationPeridiocity}}
+          você terá <h5><b>R${{this.simulationResult.total.toFixed(2).replace(/['"]+/g, '').replace('.',',')}}</b></h5>                  
         </h6>        
           
-          <div class="col-md-12 row"  v-for="(year, i) in simulationResult.year" :key="i" style="padding-bottom:3px">            
-                          
-                  <button class="btn btn-primary row" type="button" data-toggle="collapse" :data-target="'#collapseExample'+i" aria-expanded="false" 
+          <div class="col-md-12"  v-for="(year, i) in simulationResult.year" :key="i" style="padding-bottom:3px">            
+                  
+                  <button class="btn btn-primary" v-bind:id="'year'+i" type="button" data-toggle="collapse" :data-target="'#collapseExample'+i" aria-expanded="false" 
                   aria-controls="collapseExample" >
                     Ano {{parseInt(i)+1}} <!--Total = R${{(simulationResult.yearsTotal[i].toFixed(2))}}-->
                   </button>
                 
           
-                <div class="collapse col-md-8" v-bind:id="'collapseExample'+i" style="padding-left: 30px">                  
-                      <div class="card card-body" v-for="(month, j) in year" :key="j">
-                        Mês {{parseInt(JSON.stringify(month.month))+1}}
-                        Total acumulado = R${{  JSON.stringify(month.total.toFixed(2)).replace(/['"]+/g, '')  }}  
-                        Total investido até agora = R$ {{JSON.stringify(month.totalInvested.toFixed(2)).replace(/['"]+/g, '')}}
+                <div class="collapse col-md-10" v-bind:id="'collapseExample'+i" style="padding-left: 60px">                  
+                      <div class="card card-body" v-for="(month, j) in year" :key="j" style="padding: 0px 5px 0px 5px">
+                        <b>Ano {{parseInt(i)+1}} - {{parseInt(JSON.stringify(month.month))+1}}º mês </b>                        
+                        <p style="margin: 2px">Você investiu <b>R${{JSON.stringify(month.totalInvested.toFixed(2)).replace(/['"]+/g, '').replace('.',',')}} </b> </p>
+                        <p style="margin: 2px">Ganhou em juros <b>R${{JSON.stringify(month.passiveResult.toFixed(2)).replace(/['"]+/g, '').replace('.',',')}} </b> </p>
+                        <p style="margin: 0px">Totalizando <b>R${{  JSON.stringify(month.total.toFixed(2)).replace(/['"]+/g, '').replace('.',',')  }} </b></p>                        
                       </div>                  
                
             </div>   
             </div>
          </div>
       </div>            
+      
   
   
   
@@ -113,8 +116,18 @@ export default {
     }
   },
   methods: {
-    simulate() {      
+    simulate() {
+      if(this.simulationResult != null){
+        for(var aux = 0 ; aux < this.simulationResult.yearsTotal.length ; aux++){
+          if(document.getElementById("year"+aux).getAttribute("aria-expanded") == "true"){
+            document.getElementById("year"+aux).click();
+          }
+          
+        }
+      }
+
       
+      this.simulationResult = null;
       this.simulationDuration = parseInt(document.getElementById("howLong").value);
 
       this.simulationPeridiocity = this.investmentPeriod;
@@ -123,7 +136,7 @@ export default {
       this.simulationInterestType = this.interestTitle;
       this.simulationInterest = parseFloat(document.getElementById("interest")
         .value.replace(",","."));  
-                        
+                              
       this.simulationResult = Simulation.execute(this.simulationInterestType, 
                                   this.simulationInterest, this.investmentPeriod, 
                                   this.simulationDuration, this.monthlyContribution);

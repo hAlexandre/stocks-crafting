@@ -13,10 +13,10 @@
   </div>
 
   <tbody>
-  <!--  <tr v-for="post in postList" :key="post">
+    <tr v-for="post in postList" :key="post">
         <td v-html="post.postTitle"></td>
         <td v-html="post.postContent"></td>
-    </tr>-->
+    </tr>
   </tbody>
 
 </body>

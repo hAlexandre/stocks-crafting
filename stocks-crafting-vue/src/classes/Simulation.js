@@ -14,7 +14,8 @@ export default class SimulationClass {
         let simulationResult = {
             year: {},
             total: 0,
-            yearsTotal: []
+            yearsTotal: [],
+            passiveResult: 0
         }
 
         //console.log('interestPeridiocity =>' + interestPeridiocity);
@@ -41,7 +42,7 @@ export default class SimulationClass {
         var j = 0;
         var count = 0;
         var sum = 0;
-        
+        var passiveResult = 0;
         
 
         let anos = Math.ceil(period / 12);
@@ -57,12 +58,12 @@ export default class SimulationClass {
             sum = sum * (1 + interestValue/100) + monthlyContribution;
             //console.log(sum);          
             totalSoFar += monthlyContribution;
-            
+            passiveResult =  sum - totalSoFar ;
             let aux = {
                 month: j,
                 total: sum,
-                totalInvested :totalSoFar
-                
+                totalInvested: totalSoFar,
+                passiveResult: passiveResult
             }
             
             simulationResult.year[i].push(aux);
