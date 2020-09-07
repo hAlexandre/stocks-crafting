@@ -27,6 +27,7 @@ import {ConfigClass} from './classes/ConfigClass.js'
 let server = `${ConfigClass.getUrlApi().toString()}`;
 
 Vue.prototype.$blogService = BlogService;
+Vue.prototype.$app = App;
 Vue.prototype.$server = server;
 
 const routes = [

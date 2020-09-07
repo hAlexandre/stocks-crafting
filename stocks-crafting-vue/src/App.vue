@@ -128,6 +128,7 @@ export default {
   methods: {
     setRoute(route) {
       this.selectedMenu = route;
+      console.log(route);
       switch(route) {
         case 'simuladores':
           this.title = 'Simulador de juros compostos para aposentadoria';
@@ -135,8 +136,10 @@ export default {
         case 'blog':
           this.title = 'Postagens sobre educação financeira';
           break;
+        default:          
+          this.title = 'Educação financeira ao alcance de todos'
 
-
+        
       }
       return this.$router.push(route);            
     },
@@ -147,6 +150,11 @@ export default {
       return(this.selectedMenu == route)
     }
   },
+  components() {
+    //Simuladores
+    //ManterGaleria
+  }
+  ,
    data( ){
     return {
       selectedMenu : '',
@@ -154,8 +162,10 @@ export default {
     }
   },
   mounted(){     
-      this.title = 'Educação financeira gratuita ao alcance de todos'
-      console.log("HUHUss");
+      
+      let len = (window.location.href).split("/");
+      console.log(len[len.length-1] + ' -> X');
+      this.setRoute(len[len.length-1]);
   }
 }
 </script>

@@ -109,6 +109,8 @@
 <script>
 
 import Simulation from '../classes/Simulation.js'
+
+
 export default {
   name: 'App',
   data( ){
@@ -167,6 +169,10 @@ export default {
       this.simulationDuration = document.getElementById("howLong").value;
       
 
+  },
+  beforeCreate () {
+    this.app
+    
   }
 }
 
