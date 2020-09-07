@@ -8,6 +8,7 @@
     </div>
     <div>
       <p>O que gostaria de ler? Envie sugestões de conteúdo para <span style="color: rgb(44, 130, 201);"><u>contato.amigosdodinheiro@gmail.com</u></span></p>                  
+      <p>Respondemos dentro de 24 horas</p>
     </div>          
     
   </div>
@@ -57,8 +58,8 @@ export default {
   },
   mounted(){     
       
-      this.listPosts();
-      console.log(this.postList.toString());
+      //this.listPosts();
+      //console.log(this.postList.toString());
 
   }
 }
