@@ -143,7 +143,7 @@ export default {
     }
   },
   mounted(){     
-      this.setRoute('simuladores')  
+      
   }
 }
 </script>
