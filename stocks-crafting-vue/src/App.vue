@@ -3,7 +3,7 @@
 <head>
   <!-- Google Tag Manager -->
   
-  <title>Amigos do Dinheiro</title>
+  <title>{{this.title}}</title>
 
 </head>
 <body>
@@ -128,7 +128,17 @@ export default {
   methods: {
     setRoute(route) {
       this.selectedMenu = route;
-      return this.$router.push(route);      
+      switch(route) {
+        case 'simuladores':
+          this.title = 'Simulador de juros compostos para aposentadoria';
+          break;
+        case 'blog':
+          this.title = 'Postagens sobre educação financeira';
+          break;
+
+
+      }
+      return this.$router.push(route);            
     },
     isSelectedMenu(route){
       console.log(route);
@@ -139,11 +149,13 @@ export default {
   },
    data( ){
     return {
-      selectedMenu : ''
+      selectedMenu : '',
+      title: ''
     }
   },
   mounted(){     
-      
+      this.title = 'Educação financeira gratuita ao alcance de todos'
+      console.log("HUHUss");
   }
 }
 </script>
