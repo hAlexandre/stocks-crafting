@@ -40,17 +40,25 @@
               Products
             </a>
           </li>-->
-          
+                    
+          <li class="nav-item">
+            <a class="nav-link" v-bind:class="{active:isSelectedMenu('blog')}" href="" @click="setRoute('blog')" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>-->
+              Blog <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="" v-bind:class="{active:isSelectedMenu('simuladores')}"  @click="setRoute('simuladores')" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>-->
               Simulador
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" v-bind:class="{active:isSelectedMenu('blog')}" href="" @click="setRoute('blog')" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              Blog <span class="sr-only">(current)</span>
+            <a class="nav-link" href="" v-bind:class="{active:isSelectedMenu('JurosCompostos')}"  @click="setRoute('JurosCompostos')" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>-->
+              Juros Compostos
             </a>
           </li>
           <!--<li class="nav-item">
@@ -134,10 +142,12 @@ export default {
           this.title = 'Simulador de juros compostos para aposentadoria';
           break;
         case 'blog':
-          this.title = 'Postagens sobre educação financeira';
+          this.title = 'Educação financeira ao alcance de todos';
           break;
         default:          
-          this.title = 'Educação financeira ao alcance de todos'
+          this.title = 'Educação financeira ao alcance de todos';
+          route = "JurosCompostos";
+          this.selectedMenu = 'JurosCompostos';
 
         
       }

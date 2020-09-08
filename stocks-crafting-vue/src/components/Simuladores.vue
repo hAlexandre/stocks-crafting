@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center   mb-2 border-bottom" >
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" >
     <h3 > <b>Simulador e calculadora de juros compostos para aposentadoria</b></h3>           
   </div>
 
@@ -53,11 +53,12 @@
 
     </div>
     
-    <div class="col-md-8"  style="padding-top: 0px">                     
+    <div class="col-md-8"  style="background-color: #E1E8EF">                     
         <p><span style="font-size:14px">J&aacute; pensou parar de dedicar oito horas do seu dia para&nbsp;trabalho? Sabia que &eacute; poss&iacute;vel aumentar o dinheiro que entra na conta todo m&ecirc;s? Tudo isso &eacute; poss&iacute;vel com os&nbsp;<strong>Juros Compostos!</strong></span></p>
         <p><span style="padding-top: 0px font-size:14px">O simulador de juros compostos nos mostra que guardando um <strong>pouquinho&nbsp;</strong>todo m&ecirc;s com&nbsp;<strong>disciplina</strong>, e ajuda do&nbsp;<strong>tempo</strong>,<strong>&nbsp;</strong>&eacute; poss&iacute;vel acumular patrim&ocirc;nio suficiente para atingir a <strong>tranquilidade </strong>ou <strong>independ&ecirc;ncia financeira</strong>.&nbsp;</span></p>
         <p><span style=" padding-top: 0px font-size:14px">Chega de trabalhar para o dinheiro! Vamos colocar o dinheiro para trabalhar por n&oacute;s. Aqui no&nbsp;<strong>Amigos do dinheiro</strong>, vamos criar conte&uacute;dos pr&aacute;ticos para auxiliar na jornada de investidores - desde iniciantes que n&atilde;o possuem familiaridade com finan&ccedil;as e at&eacute; mesmo investidores de n&iacute;vel avan&ccedil;ado :).<br />
           Caso tenham algum que gostariam de ler em breve, envie um e-mail para contato.amigosdodinheiro@gmail.com</span></p>
+          Quer saber mais sobre a <b>mágica</b> dos juros compostos? <a href="https://www.amigosdodinheiro.com.br/JurosCompostos"><b>Clique AQUI</b></a> ou acesse a seção Juros Compostos do nosso site :)
 
     </div>
 

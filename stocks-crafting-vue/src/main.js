@@ -12,6 +12,7 @@ window.jQuery = window.$ = $;
 
 import VueRouter from 'vue-router'
 import Simuladores from './components/Simuladores.vue'
+import JurosCompostos from './components/JurosCompostos.vue'
 import Blog from './components/Blog.vue'
 import QuemSomos from './components/QuemSomos.vue'
 
@@ -45,6 +46,11 @@ const routes = [
       name: 'QuemSomos',
       path: '/QuemSomos',
       component: QuemSomos
+    },
+    {
+      name: 'JurosCompostos',
+      path: '/JurosCompostos',
+      component: JurosCompostos
     }     
   ]
   
