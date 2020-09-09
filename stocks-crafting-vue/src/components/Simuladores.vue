@@ -18,7 +18,7 @@
         <h6> <b>Quanto vai guardar por mês? </b></h6>  
       </div>  
       <div class="input-group" >
-        <input id="monthlyContribution" value="500" type="text" class="form-control" aria-label="Text  put with dropdown button">
+        <input id="monthlyContribution" value="1000" type="text" class="form-control" aria-label="Text  put with dropdown button">
         <div class="">
           <button class="btn btn-outline-secondary " type="button">reais por mês</button>      
         </div>
@@ -38,7 +38,7 @@
 
       <h6> <b>Qual a taxa?</b>  <!--CDI em 10 de julho = 0,38% ao mês--></h6> 
       <div class="input-group ">
-        <input id="interest" type="text" value="0,45" class="form-control" aria-label="Text input with dropdown button">
+        <input id="interest" type="text" value="0,50" class="form-control" aria-label="Text input with dropdown button">
         <div class="">
           <button class="btn btn-outline-secondary dropdown-toggle" style="padding-left:25px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{interestTitle}}</button>
           <div class="dropdown-menu">
@@ -48,7 +48,7 @@
         </div>    
       </div>
       <div class="float-right" style="padding:5px 0px 0px 0px"> 
-        <button type="submit" class="btn btn-secondary" @click="simulate()">Simular</button>
+        <button type="submit" class="btn btn-primary" @click="simulate()">Simular !!!</button>
       </div>
 
     </div>
@@ -57,7 +57,7 @@
         <p><span style="font-size:14px">J&aacute; pensou parar de dedicar oito horas do seu dia para&nbsp;trabalho? Sabia que &eacute; poss&iacute;vel aumentar o dinheiro que entra na conta todo m&ecirc;s? Tudo isso &eacute; poss&iacute;vel com os&nbsp;<strong>Juros Compostos!</strong></span></p>
         <p><span style="padding-top: 0px font-size:14px">O simulador de juros compostos nos mostra que guardando um <strong>pouquinho&nbsp;</strong>todo m&ecirc;s com&nbsp;<strong>disciplina</strong>, e ajuda do&nbsp;<strong>tempo</strong>,<strong>&nbsp;</strong>&eacute; poss&iacute;vel acumular patrim&ocirc;nio suficiente para atingir a <strong>tranquilidade </strong>ou <strong>independ&ecirc;ncia financeira</strong>.&nbsp;</span></p>
         <p><span style=" padding-top: 0px font-size:14px">Chega de trabalhar para o dinheiro! Vamos colocar o dinheiro para trabalhar por n&oacute;s. Aqui no&nbsp;<strong>Amigos do dinheiro</strong>, vamos criar conte&uacute;dos pr&aacute;ticos para auxiliar na jornada de investidores - desde iniciantes que n&atilde;o possuem familiaridade com finan&ccedil;as e at&eacute; mesmo investidores de n&iacute;vel avan&ccedil;ado :).<br />
-          Caso tenham algum que gostariam de ler em breve, envie um e-mail para contato.amigosdodinheiro@gmail.com</span></p>
+          Caso tenham alguma sugestão de tema que gostariam de ler em breve, envie um e-mail para contato.amigosdodinheiro@gmail.com</span></p>
           Quer saber mais sobre a <b>mágica</b> dos juros compostos? <a href="https://www.amigosdodinheiro.com.br/JurosCompostos"><b>Clique AQUI</b></a> ou acesse a seção Juros Compostos do nosso site :)
 
     </div>
