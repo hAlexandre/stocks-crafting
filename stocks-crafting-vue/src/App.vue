@@ -145,7 +145,7 @@ export default {
           this.title = 'Educação financeira ao alcance de todos';
           break;
         default:          
-          this.title = 'O que são juros compostos? Como me aposentar com juros compostos?';
+          this.title = 'O que são juros compostos e como me aposentar';
           route = "JurosCompostos";
           this.selectedMenu = 'JurosCompostos';
 
