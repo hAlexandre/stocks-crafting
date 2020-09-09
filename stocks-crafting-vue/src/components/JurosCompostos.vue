@@ -15,10 +15,13 @@
       <img src="../assets/passiveIncome.jpg">
     </div>-->    
   </div>
-  <div class="row">
-    <div >
+  <div class="col-md-12">
+    <div class="col-md-12">
       <p style="font-size:15px">No gr&aacute;fico abaixo, mostro o resultado de aportes mensais de R$100,00 que nosso amigo fictício <b>Beto</b> após 20 anos, considerando um rendimento de 10% ao ano.</p>
-      <img src="../assets/first20y.png" width="780" height="350">
+      <img src="../assets/first20y.png" class="img-fluid">    
+      
+        
+    
       <ul>
         <li style="font-size:15px">Em <strong><span style="color:#FF8C00">laranja&nbsp;</span></strong>temos o valor total que Beto guardou no total - no primeiro ano esse valor totaliza <strong>R$1200</strong>, no segundo <strong>R$2400</strong> e assim por diante, at&eacute; <strong>R$24000</strong> no ano 20.</li>
         <li style="font-size:15px">Em <font color="#0000cd"><strong>azul&nbsp;</strong></font>temos os juros acumulados do dinheiro que&nbsp;Beto&nbsp;poupou.&nbsp;<u><strong>&Eacute; aqui que o dinheiro trabalha pra voc&ecirc;</strong>.</u> Veja que nos primeiros anos a barra&nbsp;<strong><span style="color:#0000CD">azul</span> </strong>quase n&atilde;o aparece no nosso gr&aacute;fico! Isso mesmo:&nbsp;<strong>quanto mais deixamos o tempo agir</strong>, mais dinheiro acumulamos!</li>
@@ -27,7 +30,7 @@
       </ul>
       <p style="color: red"><b> N&atilde;o ficou impressionado? </b></p>
       <p>Olhe o gr&aacute;fico abaixo, que mostra o que ocorre se&nbsp;Beto continuar com essa poupan&ccedil;a de R$100,00 por m&ecirc;s por mais vinte anos:</p>
-      <img src="../assets/first40y.png" width="780" height="350">
+      <img src="../assets/first40y.png" class="img-fluid">
       <ul style="padding-top: 12px">
         <li style="font-size:15px">O resultado &eacute; surpreendente! Em 40 anos Beto poupou R$100 todo m&ecirc;s e investiu no total R$48.000. Utilizando apenas R$100,00 por m&ecirc;s e&nbsp;<strong>Juros Compostos</strong>, os&nbsp;R$48.000 de Beto se transformam em incr&iacute;veis <strong>R$531.135,00</strong>. Veja como a barrinha <strong><span style="color:#0000CD">azul&nbsp;</span></strong>cresce<strong>&nbsp;</strong> e a <strong> <span style="color:#FF8C00">laranja</span></strong> permanece quase igual. </li>
         <li style="font-size:15px">Essa &eacute; a&nbsp;<strong>explos&atilde;o</strong>&nbsp;que citei acima. Com essa explos&atilde;o, depois de alguns anos seus aportes ficam irrelevantes, pois a m&aacute;quina dos juros compostos trabalha sozinha.&nbsp;</li>

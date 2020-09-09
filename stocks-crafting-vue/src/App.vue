@@ -134,8 +134,10 @@
 export default {
   name: 'App',
   methods: {
-    setRoute(route) {
-      this.selectedMenu = route;
+    setRoute(route, img) {
+      if (img == null) {
+        this.selectedMenu = route;
+      }
       console.log(route);
       switch(route) {
         case 'simuladores':
@@ -143,6 +145,9 @@ export default {
           break;
         case 'blog':
           this.title = 'Educação financeira ao alcance de todos';
+          break;
+        case 'img':
+          route = 'img/'+img;
           break;
         default:          
           this.title = 'O que são juros compostos e como me aposentar';
@@ -175,7 +180,9 @@ export default {
       
       let len = (window.location.href).split("/");
       console.log(len[len.length-1] + ' -> X');
-      this.setRoute(len[len.length-1]);
+      if(len[len.lenght-2] == 'img') {
+        this.setRoute('img',len[len.length-1])
+      } else this.setRoute(len[len.length-1],null);
   }
 }
 </script>
